@@ -1,0 +1,26 @@
+---
+all:
+  children:
+    automationcontroller:
+      hosts:
+        control:
+          ansible_host: "controller.mkbredem.com"
+          ansible_user: "{{ vault_user }}"
+          ansible_password: "{{ vault_password }}"
+    automationhub:
+      hosts:
+        hub:
+          ansible_host: "pah.mkbredem.com"
+          ansible_user: "{{ vault_user }}"
+          ansible_password: "{{ vault_password }}"
+    builder:
+      hosts:
+        builder:
+          ansible_host: "webserver.mkbredem.com"
+          ansible_user: "{{ vault_user }}"
+          ansible_password: "{{ vault_password }}"
+    execution:
+      hosts:
+        localhost:
+          ansible_connection: local
+...
