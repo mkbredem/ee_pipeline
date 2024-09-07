@@ -3,16 +3,18 @@
   hosts: builder
   gather_facts: false
   connection: local
+  become: true
   vars_files:
     - vault.yml
+
   tasks:
 
-#    - name: Debug all variables
-#      debug:
-#        var: hostvars[inventory_hostname]
-#
-#    - debug:
-#        var: ee_list
+    - name: install podman
+      dnf:
+        name: 
+          - podman
+          - ansible-navigator
+        state: present
 
     - name: Include ee_builder role
       ansible.builtin.include_role:
